@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace prime
+namespace Prime
 {
     internal class Program
     {

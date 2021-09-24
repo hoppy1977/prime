@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace prime
+namespace Prime
 {
     public static class Prime
     {
-        private static bool IsPrime(int candidate)
+        public static bool IsPrime(int candidate)
         {
             for(var x = 2; x < candidate; x++)
             {

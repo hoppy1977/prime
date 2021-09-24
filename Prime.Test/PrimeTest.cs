@@ -1,22 +1,21 @@
-using System;
 using Xunit;
-using Xunit.Abstractions;
+using Prime;
 
 namespace Prime.Test
 {
     public class PrimeTest
     {
-        private readonly ITestOutputHelper output;
-
-        public PrimeTest(ITestOutputHelper output)
-        {
-            this.output = output;
-        }
-
         [Fact]
-        public void Test1()
+        public void TestPrintPrimes()
         {
+            // Arrange
+            // TODO:
 
+            // Act
+            Prime.PrintPrimes(10);
+
+            // Assert
+            // TODO:
         }
     }
 }
