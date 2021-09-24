@@ -1,8 +1,10 @@
-﻿namespace prime
+﻿using System;
+
+namespace prime
 {
     public static class Prime
     {
-        public static bool IsPrime(int candidate)
+        private static bool IsPrime(int candidate)
         {
             for(var x = 2; x < candidate; x++)
             {
@@ -14,6 +16,17 @@
             }
 
             return false;
+        }
+
+        public static void PrintPrimes(int maxNumber)
+        {
+            for (var i = 0; i < maxNumber; i++)
+            {
+                if (Prime.IsPrime(i))
+                {
+                    Console.WriteLine(i);
+                }
+            }
         }
     }
 }
