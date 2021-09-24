@@ -1,21 +1,34 @@
 using Xunit;
-using Prime;
+using System.IO;
+using System;
+using System.Text;
 
 namespace Prime.Test
 {
     public class PrimeTest
     {
         [Fact]
-        public void TestPrintPrimes()
+        public void TestPrintPrimes_10()
         {
-            // Arrange
-            // TODO:
+            using (var sw = new StringWriter())
+            {
+                // Arrange
+                Console.SetOut(sw);
 
-            // Act
-            Prime.PrintPrimes(10);
+                // Act
+                Prime.PrintPrimes(10);
 
-            // Assert
-            // TODO:
+                // Assert
+                StringBuilder expected = new StringBuilder();
+
+                var lines = File.ReadLines(@"..\..\..\Data\10.txt");
+                foreach(var line in lines)
+                {
+                    expected.AppendLine(line);
+                }
+
+                Assert.Equal(expected.ToString(), sw.ToString());
+            }
         }
     }
 }

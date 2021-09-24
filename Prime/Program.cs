@@ -6,7 +6,7 @@ namespace Prime
     {
         static void Main(string[] args)
         {
-            Prime.PrintPrimes(100);
+            Prime.PrintPrimes(10);
 
             Console.WriteLine("");
             Console.WriteLine("Press any key to continue...");

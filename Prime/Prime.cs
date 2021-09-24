@@ -6,16 +6,21 @@ namespace Prime
     {
         public static bool IsPrime(int candidate)
         {
+            if(candidate == 0 || candidate == 1)
+            {
+                return false;
+            }
+
             for(var x = 2; x < candidate; x++)
             {
                 var remainder = (candidate % x);
                 if (remainder == 0)
                 {
-                    return true;
+                    return false;
                 }
             }
 
-            return false;
+            return true;
         }
 
         public static void PrintPrimes(int maxNumber)
