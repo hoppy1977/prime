@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace prime
+﻿namespace prime
 {
-    public class Prime
+    public static class Prime
     {
-        //var _prime = new Prime();
+        public static bool IsPrime(int candidate)
+        {
+            for(var x = 2; x < candidate; x++)
+            {
+                var remainder = (candidate % x);
+                if (remainder == 0)
+                {
+                    return true;
+                }
+            }
 
+            return false;
+        }
     }
 }
