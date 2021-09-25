@@ -47,11 +47,7 @@ namespace Prime
         {
             var primes = new ConcurrentBag<int>();
 
-            var candidateNumbers = Enumerable
-                .Range(0, maxNumber)
-                .ToList();
-
-            Parallel.ForEach(candidateNumbers, candidate =>
+            Parallel.For(0, maxNumber, candidate =>
             {
                 if (IsPrime(candidate))
                 {
