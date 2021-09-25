@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace Prime
 {
@@ -13,6 +17,7 @@ namespace Prime
 
             for(var x = 2; x < candidate; x++)
             {
+//                var remainder = (Math.Sqrt(candidate) % x);
                 var remainder = (candidate % x);
                 if (remainder == 0)
                 {
@@ -23,14 +28,47 @@ namespace Prime
             return true;
         }
 
-        public static void PrintPrimes(int maxNumber)
+        public static IList<int> GetPrimesSimple(int maxNumber)
         {
+            var primes = new List<int>();
+
             for (var i = 0; i < maxNumber; i++)
             {
-                if (Prime.IsPrime(i))
+                if (IsPrime(i))
                 {
-                    Console.WriteLine(i);
+                    primes.Add(i);
                 }
+            }
+
+            return primes;
+        }
+
+        public static IList<int> GetPrimesParallel(int maxNumber)
+        {
+            var primes = new ConcurrentBag<int>();
+
+            var candidateNumbers = Enumerable
+                .Range(0, maxNumber)
+                .ToList();
+
+            Parallel.ForEach(candidateNumbers, candidate =>
+            {
+                if (IsPrime(candidate))
+                {
+                    primes.Add(candidate);
+                }
+            });
+
+            var primeList = primes.ToList();
+            primeList.Sort();
+            return primeList;
+        }
+
+        public static void PrintPrimes(List<int> primes)
+        {
+            foreach (var p in primes)
+            {
+                Console.WriteLine(p);
             }
         }
     }

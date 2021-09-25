@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Prime
 {
@@ -6,7 +7,9 @@ namespace Prime
     {
         static void Main(string[] args)
         {
-            Prime.PrintPrimes(10);
+            //var primes = Prime.GetPrimesSimple(10).ToList();
+            var primes = Prime.GetPrimesParallel(100).ToList();
+            Prime.PrintPrimes(primes);
 
             Console.WriteLine("");
             Console.WriteLine("Press any key to continue...");
