@@ -15,9 +15,8 @@ namespace Prime
                 return false;
             }
 
-            for(var x = 2; x < candidate; x++)
+            for(var x = 2; x <= Math.Sqrt(candidate); x++)
             {
-//                var remainder = (Math.Sqrt(candidate) % x);
                 var remainder = (candidate % x);
                 if (remainder == 0)
                 {
